@@ -1,16 +1,16 @@
 # PasswordInputBox
 一个密码输入框控件
-<img src="https://github.com/hfdy/PasswordInputBox/blob/master/Screenshot/Screenshot_2017-06-26-09-00-01-467_PasswordInput.png" width = "540" height = "960" align=center />
+<img src="https://github.com/hfdy/PasswordInputBox/blob/master/Screenshot/Screenshot_2017-06-26-09-00-01-467_PasswordInput.png" width = "360" height = "740" />
 ### 获取PasswordInputBox
 - Gradle
 Add it in your root build.gradle at the end of repositories:
 
     ```
     allprojects {
-    	repositories {
-    		...
-    		maven { url 'https://jitpack.io' }
-    	}
+        repositories {
+        	...
+        	maven { url 'https://jitpack.io' }
+        }
     }
     ```
 
@@ -25,10 +25,10 @@ Add it in your root build.gradle at the end of repositories:
 
     ```
     <repositories>
-    	<repository>
-    	    <id>jitpack.io</id>
-    	    <url>https://jitpack.io</url>
-    	</repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependency>
