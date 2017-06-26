@@ -1,5 +1,5 @@
 # PasswordInputBox
-一个密码输入框控件
+一个密码输入框控件<br>
 <img src="https://github.com/hfdy/PasswordInputBox/blob/master/Screenshot/Screenshot_2017-06-26-09-00-01-467_PasswordInput.png" width = "360" height = "640" />
 ### 获取PasswordInputBox
 - Gradle
