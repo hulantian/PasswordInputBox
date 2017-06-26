@@ -82,5 +82,20 @@ Add it in your root build.gradle at the end of repositories:
     pwdinputbox.clearPwd();
     ```
 
+### 附录
+- Layout of the property.
+
+    属性 | 介绍
+    :---:|:---:
+    pwdVisible | 显示密码还是圆点，默认显示圆点
+    needCursor | 是否显示光标，默认不显示
+    pwdNum | 密码位数，默认6
+    borderColor | 绘制的边框颜色
+    borderWidth | 绘制的边框宽度
+    circleColor | 显示圆点时圆点的颜色
+    circleSize | 显示圆点时圆点的半径大小
+    textColor | 显示密码时文本的颜色
+    textSize | 显示密码时文本的大小
+
 ### 更新日志
 - 1.0.0 2017/06/26
