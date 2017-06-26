@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -10,7 +11,17 @@
         android:id="@+id/pwdinputbox"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+
+        app:pwdVisible="true"
+        app:needCursor="true"
+        app:pwdNum="8"
+        app:borderColor="#303F9F"
+        app:borderWidth="4dp"
+        app:circleColor="#FF4081"
+        app:circleSize="6dp"
+        app:textColor="#FF4081"
+        app:textSize="12dp"/>
 
     <Button
         android:id="@+id/clearbutton"
