@@ -98,4 +98,4 @@ Add it in your root build.gradle at the end of repositories:
     textSize | 显示密码时文本的大小
 
 ### 更新日志
-- 1.0.0 2017/06/26
+- 1.0.0 2017/06/26 具有和系统键盘交互的功能，暂不支持自定义键盘
