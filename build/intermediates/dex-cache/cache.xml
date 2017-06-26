@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.3.1_f03db52fe3d4bcb5a079d02e7becc47fda35c02a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.3.1_5bb5dca639680b98271052684bf2223ef62b01cb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="52dd240ca1e1f489a743bb97b4b4cc3d12f92533">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\instant-run_29e082be9535c3a08f16732c8be430aeffd7a0df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.3.1_72a11a58851a26234971f7f0bac5ac1edc8b1c1e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.3.1_5bb5dca639680b98271052684bf2223ef62b01cb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.3.1_1c5035c7dcf24bea1e22bf96c1c314f51654c7c6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b57955065940bf6fb4c2f79cf92d75ec77d83c2d">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_3771e76d39746c7f87faa3dc73dc30846be78dcc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.3.1_ca3283fb7710a5178abadbb200eee0e440426651.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.3.1_72a11a58851a26234971f7f0bac5ac1edc8b1c1e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_cfa7e4f6acdbb5a37cc4fde833ccf160c11355f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.3.1_ca3283fb7710a5178abadbb200eee0e440426651.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.3.1_3e07877adfe94e0b9deea2e5e409a466ce0411f8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_cfa7e4f6acdbb5a37cc4fde833ccf160c11355f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.3.1_54a17e4cb6be7db07f5dfc789900dc2addc86f58.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.3.1_b615d69050175d40ffb929a73e0e4fdfbd6de525.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.3.1_54a17e4cb6be7db07f5dfc789900dc2addc86f58.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.3.1_3e07877adfe94e0b9deea2e5e409a466ce0411f8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.3.1_b615d69050175d40ffb929a73e0e4fdfbd6de525.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.3.1_1c5035c7dcf24bea1e22bf96c1c314f51654c7c6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.3.1_f03db52fe3d4bcb5a079d02e7becc47fda35c02a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.3.1_05b562dce9a24b2cb8200b8ae71b2a7e55545545.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MomentProject\PasswordInput\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.3.1_05b562dce9a24b2cb8200b8ae71b2a7e55545545.jar" />
+    </item>
+
+</items>

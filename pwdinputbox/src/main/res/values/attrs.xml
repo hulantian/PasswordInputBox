@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PasswordInputBox">
+        <!--密码是否可见-->
+        <attr name="pwdVisible" format="boolean"/>
+        <!--是否需要光标-->
+        <attr name="needCursor" format="boolean"/>
+        <!--密码位数-->
+        <attr name="pwdNum" format="integer"/>
+        <!--边框颜色-->
+        <attr name="borderColor" format="color|reference"/>
+        <!--边框宽度-->
+        <attr name="borderWidth" format="dimension|reference"/>
+        <!--密码不可见时符号圆的颜色-->
+        <attr name="circleColor" format="color|reference"/>
+        <!--密码不可见时符号圆的半径-->
+        <attr name="circleSize" format="dimension|reference"/>
+        <!--密码可见时的文本颜色-->
+        <attr name="textColor" format="color|reference"/>
+        <!--密码可见时的文本大小-->
+        <attr name="textSize" format="dimension|reference"/>
+    </declare-styleable>
+</resources>
