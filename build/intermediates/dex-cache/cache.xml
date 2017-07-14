@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="52dd240ca1e1f489a743bb97b4b4cc3d12f92533">
+        sha1="f3112985b0f3de797af5590b6b7c06fd731c1e78">
         <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\instant-run_29e082be9535c3a08f16732c8be430aeffd7a0df.jar" />
     </item>
     <item
@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b57955065940bf6fb4c2f79cf92d75ec77d83c2d">
+        sha1="8bf90e8bc8d5f160f6ad0dd8fd0efa813cfdb06a">
         <dex dex="D:\MomentProject\PasswordInput\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_3771e76d39746c7f87faa3dc73dc30846be78dcc.jar" />
     </item>
     <item

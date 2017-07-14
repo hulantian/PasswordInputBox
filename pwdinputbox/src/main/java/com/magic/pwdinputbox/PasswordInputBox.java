@@ -25,7 +25,7 @@ import java.util.TimerTask;
  * 密码输入框
  */
 
-public class PasswordInputBox extends View implements View.OnKeyListener, View.OnFocusChangeListener {
+public class PasswordInputBox extends View implements View.OnKeyListener, View.OnFocusChangeListener, MagicKeyBoard.InputListener {
     private int mPwdNum;
     private boolean mNeedCursor;
     private boolean mPwdVisible;
@@ -47,12 +47,13 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
     private boolean mIsFirstComplete;
     private int mCurrentPosition;
     private long mDelayTime = 800;
-    private final int[] mCursorAlpha = {0,255};
+    private final int[] mCursorAlpha = {0, 255};
     private int mCurrentAlpha = mCursorAlpha[0];
     private boolean mEndCursor;
     private Timer mTimer;
     private TimerTask mTimerTask;
-
+    private boolean mIsCustomKeyboard;
+    private MagicKeyBoard mMagicKeyBoard;
 
     public PasswordInputBox(Context context) {
         this(context, null);
@@ -73,6 +74,7 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
         mContext = context;
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PasswordInputBox);
         mPwdNum = typedArray.getInteger(R.styleable.PasswordInputBox_pwdNum, 6);
+        mIsCustomKeyboard = typedArray.getBoolean(R.styleable.PasswordInputBox_isCustomKeyboard, true);
         mPwdVisible = typedArray.getBoolean(R.styleable.PasswordInputBox_pwdVisible, false);
         mNeedCursor = typedArray.getBoolean(R.styleable.PasswordInputBox_needCursor, false);
         mBorderColor = typedArray.getColor(R.styleable.PasswordInputBox_borderColor, Color.parseColor("#aa888888"));
@@ -81,20 +83,20 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
         mCircleSize = typedArray.getDimensionPixelSize(R.styleable.PasswordInputBox_circleSize, dp2px(10));
         mTextColor = typedArray.getColor(R.styleable.PasswordInputBox_textColor, Color.parseColor("#ACACAC"));
         mTextSize = typedArray.getDimensionPixelSize(R.styleable.PasswordInputBox_textSize, dp2px(16));
-        mBorderWidthHalf = mBorderWidth/2;
+        mBorderWidthHalf = mBorderWidth / 2;
         mList = new ArrayList<>();
         mIsFirstComplete = true;
         mCurrentPosition = 0;
         mEndCursor = false;
-        if (mNeedCursor){
+        if (mNeedCursor) {
             mTimer = new Timer();
             mTimerTask = new TimerTask() {
                 @Override
                 public void run() {
                     postInvalidate();
-                    if (mCurrentAlpha == mCursorAlpha[0]){
+                    if (mCurrentAlpha == mCursorAlpha[0]) {
                         mCurrentAlpha = mCursorAlpha[1];
-                    }else if (mCurrentAlpha == mCursorAlpha[1]){
+                    } else if (mCurrentAlpha == mCursorAlpha[1]) {
                         mCurrentAlpha = mCursorAlpha[0];
                     }
                 }
@@ -107,11 +109,13 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
         mPaint.setAntiAlias(true);
     }
 
-    private void initKeyBoard(){
-        setFocusable(true);
-        setFocusableInTouchMode(true);
-        setOnKeyListener(this);
-        setOnFocusChangeListener(this);
+    private void initKeyBoard() {
+        if (!mIsCustomKeyboard) {
+            setFocusable(true);
+            setFocusableInTouchMode(true);
+            setOnKeyListener(this);
+            setOnFocusChangeListener(this);
+        }
     }
 
     @Override
@@ -127,7 +131,7 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
         }
         mSingleNoBorder = (widthSize - (mPwdNum + 1) * mBorderWidth) / mPwdNum;
         heightSize = mSingleNoBorder + 2 * mBorderWidth;
-        mCircleSize = mCircleSize <= mSingleNoBorder/2 ? mCircleSize : mSingleNoBorder/2;
+        mCircleSize = mCircleSize <= mSingleNoBorder / 2 ? mCircleSize : mSingleNoBorder / 2;
         mTextSize = mTextSize <= mSingleNoBorder ? mTextSize : mTextSize;
         setMeasuredDimension(widthSize, heightSize);
     }
@@ -144,36 +148,38 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
         super.onDraw(canvas);
         drawRect(canvas);
         drawLine(canvas);
-        if (mNeedCursor){
+        if (mNeedCursor) {
             drawCursor(canvas);
         }
-        if (mPwdVisible){
+        if (mPwdVisible) {
             drawPwd(canvas);
-        }else {
+        } else {
             drawCircle(canvas);
         }
     }
 
     /**
      * 画光标
+     *
      * @param canvas
      */
-    private void drawCursor(Canvas canvas){
+    private void drawCursor(Canvas canvas) {
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setStrokeWidth(dp2px(2));
         mPaint.setColor(Color.BLACK);
         mPaint.setAlpha(mCurrentAlpha);
-        if (!mEndCursor&&hasFocus()){
-            canvas.drawLine(mBorderWidth+mSingleNoBorder/2+mCurrentPosition*(mBorderWidth+mSingleNoBorder),
-                    mBorderWidth+mSingleNoBorder/3,
-                    mBorderWidth+mSingleNoBorder/2+mCurrentPosition*(mBorderWidth+mSingleNoBorder),
-                    mHeight-mBorderWidth-mSingleNoBorder/3,
+        if (!mEndCursor && hasFocus()) {
+            canvas.drawLine(mBorderWidth + mSingleNoBorder / 2 + mCurrentPosition * (mBorderWidth + mSingleNoBorder),
+                    mBorderWidth + mSingleNoBorder / 3,
+                    mBorderWidth + mSingleNoBorder / 2 + mCurrentPosition * (mBorderWidth + mSingleNoBorder),
+                    mHeight - mBorderWidth - mSingleNoBorder / 3,
                     mPaint);
         }
     }
 
     /**
      * 画矩形
+     *
      * @param canvas
      */
     private void drawRect(Canvas canvas) {
@@ -186,13 +192,14 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
 
     /**
      * 画分割线
+     *
      * @param canvas
      */
     private void drawLine(Canvas canvas) {
-        for (int i = 0; i<mPwdNum-1;i++){
-            canvas.drawLine(mBorderWidth + mSingleNoBorder + mBorderWidthHalf+i*(mSingleNoBorder+mBorderWidth),
+        for (int i = 0; i < mPwdNum - 1; i++) {
+            canvas.drawLine(mBorderWidth + mSingleNoBorder + mBorderWidthHalf + i * (mSingleNoBorder + mBorderWidth),
                     mBorderWidthHalf,
-                    mBorderWidth + mSingleNoBorder + mBorderWidthHalf+i*(mSingleNoBorder+mBorderWidth),
+                    mBorderWidth + mSingleNoBorder + mBorderWidthHalf + i * (mSingleNoBorder + mBorderWidth),
                     mHeight - mBorderWidthHalf,
                     mPaint);
         }
@@ -200,15 +207,16 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
 
     /**
      * 画圆点
+     *
      * @param canvas
      */
-    private void drawCircle(Canvas canvas){
+    private void drawCircle(Canvas canvas) {
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setStrokeWidth(mBorderWidth);
         mPaint.setColor(mCircleColor);
-        for (int i = 0;i < mList.size(); i++){
-            canvas.drawCircle(mBorderWidth+mSingleNoBorder/2+i*(mBorderWidth+mSingleNoBorder),
-                    mBorderWidth+mSingleNoBorder/2,
+        for (int i = 0; i < mList.size(); i++) {
+            canvas.drawCircle(mBorderWidth + mSingleNoBorder / 2 + i * (mBorderWidth + mSingleNoBorder),
+                    mBorderWidth + mSingleNoBorder / 2,
                     mCircleSize,
                     mPaint);
         }
@@ -216,19 +224,20 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
 
     /**
      * 画密码文本
+     *
      * @param canvas
      */
-    private void drawPwd(Canvas canvas){
+    private void drawPwd(Canvas canvas) {
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setStrokeWidth(0);
         mPaint.setColor(mTextColor);
         mPaint.setTextSize(mTextSize);
         mPaint.setTextAlign(Paint.Align.CENTER);
-        for (int i = 0;i < mList.size(); i++){
+        for (int i = 0; i < mList.size(); i++) {
             Paint.FontMetricsInt fontMetricsInt = mPaint.getFontMetricsInt();
-            int baselineY = mBorderWidth+mSingleNoBorder/2 + ((fontMetricsInt.bottom - fontMetricsInt.top)/2 - fontMetricsInt.bottom);
-            canvas.drawText(mList.get(i)+"",
-                    mBorderWidth+mSingleNoBorder/2+i*(mBorderWidth+mSingleNoBorder),
+            int baselineY = mBorderWidth + mSingleNoBorder / 2 + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.bottom);
+            canvas.drawText(mList.get(i) + "",
+                    mBorderWidth + mSingleNoBorder / 2 + i * (mBorderWidth + mSingleNoBorder),
                     baselineY,
                     mPaint);
         }
@@ -236,10 +245,12 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getActionMasked()){
+        switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-                requestFocus();
-                showKeyBoard();
+                if (!mIsCustomKeyboard) {
+                    requestFocus();
+                    showKeyBoard();
+                }
                 break;
         }
         return true;
@@ -247,11 +258,11 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
 
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case KeyEvent.ACTION_DOWN:
-                if (keyCode >= KeyEvent.KEYCODE_0 && keyCode <= KeyEvent.KEYCODE_9){
+                if (keyCode >= KeyEvent.KEYCODE_0 && keyCode <= KeyEvent.KEYCODE_9) {
                     addPwd(keyCode);
-                }else if (keyCode == KeyEvent.KEYCODE_DEL){
+                } else if (keyCode == KeyEvent.KEYCODE_DEL) {
                     deleteForwardPwd();
                 }
                 break;
@@ -259,29 +270,56 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
         return true;
     }
 
-    public enum PwdInput{
+    public void register(MagicKeyBoard magicKeyBoard) {
+        mMagicKeyBoard = magicKeyBoard;
+        if (mIsCustomKeyboard) {
+            addMagicKeyBoardListener();
+        }
+    }
+
+    public void unregister() {
+        mMagicKeyBoard = null;
+    }
+
+    private void addMagicKeyBoardListener() {
+        if (mMagicKeyBoard != null) {
+            mMagicKeyBoard.setInputListener(this);
+        }
+    }
+
+    @Override
+    public void onNumberKey(String number) {
+        addPwd(Integer.parseInt(number) + 7);
+    }
+
+    @Override
+    public void onBackspaceKey() {
+        deleteForwardPwd();
+    }
+
+    public enum PwdInput {
         ADDSINGLE,
         DELETESINGLE
     }
 
     /**
-     *增加
+     * 增加
      */
-    private void addPwd(int keyCode){
-        if (mList.size() < mPwdNum){
-            if (mCurrentPosition>= 0 && mCurrentPosition<mPwdNum-1){
-                mCurrentPosition ++;
+    private void addPwd(int keyCode) {
+        if (mList.size() < mPwdNum) {
+            if (mCurrentPosition >= 0 && mCurrentPosition < mPwdNum - 1) {
+                mCurrentPosition++;
             }
-            mList.add(keyCode-7);
+            mList.add(keyCode - 7);
             postInvalidate();
-            if (mOnPwdInputListener!=null){
-                mOnPwdInputListener.pwdChange((keyCode-7)+"", PwdInput.ADDSINGLE);
+            if (mOnPwdInputListener != null) {
+                mOnPwdInputListener.pwdChange((keyCode - 7) + "", PwdInput.ADDSINGLE);
             }
         }
-        if (mList.size() == mPwdNum && mIsFirstComplete){
+        if (mList.size() == mPwdNum && mIsFirstComplete) {
             mEndCursor = true;
             mIsFirstComplete = false;
-            if (mOnPwdInputListener!=null) {
+            if (mOnPwdInputListener != null) {
                 mOnPwdInputListener.pwdComplete(getPwd());
             }
         }
@@ -289,9 +327,10 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
 
     /**
      * 输入完成时/清空密码时获取密码
+     *
      * @return 密码字符串
      */
-    private String getPwd(){
+    private String getPwd() {
         StringBuffer buffer = new StringBuffer();
         for (Integer single : mList) {
             buffer.append(single);
@@ -302,14 +341,14 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
     /**
      * 退格
      */
-    private void deleteForwardPwd(){
-        if (mList.size()>0 && mList.size()<mPwdNum){
-            if (mCurrentPosition>0&&mCurrentPosition<=mPwdNum){
-                mCurrentPosition --;
+    private void deleteForwardPwd() {
+        if (mList.size() > 0 && mList.size() < mPwdNum) {
+            if (mCurrentPosition > 0 && mCurrentPosition <= mPwdNum) {
+                mCurrentPosition--;
                 mEndCursor = false;
             }
             Integer removePwd = mList.remove(mList.size() - 1);
-            if (mOnPwdInputListener!=null) {
+            if (mOnPwdInputListener != null) {
                 mOnPwdInputListener.pwdChange(removePwd + "", PwdInput.DELETESINGLE);
             }
             postInvalidate();
@@ -318,9 +357,10 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
 
     /**
      * 清空密码
+     *
      * @return 清空的密码
      */
-    public String clearPwd(){
+    public String clearPwd() {
         mCurrentPosition = 0;
         mEndCursor = false;
         mIsFirstComplete = true;
@@ -330,14 +370,14 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
         return oldPwd;
     }
 
-    public void setOnPwdInputListener(OnPwdInputListener onPwdInputListener){
+    public void setOnPwdInputListener(OnPwdInputListener onPwdInputListener) {
         mOnPwdInputListener = onPwdInputListener;
     }
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (mTimer!=null){
+        if (mTimer != null) {
             mTimer.scheduleAtFixedRate(mTimerTask, 0, mDelayTime);
         }
     }
@@ -345,7 +385,7 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (mTimer!=null){
+        if (mTimer != null) {
             mTimer.cancel();
         }
     }
@@ -353,8 +393,9 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
     /**
      * 密码输入的监听
      */
-    public interface OnPwdInputListener{
+    public interface OnPwdInputListener {
         void pwdChange(String pwd, PwdInput flag);
+
         void pwdComplete(String pwd);
     }
 
@@ -366,7 +407,7 @@ public class PasswordInputBox extends View implements View.OnKeyListener, View.O
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
-        if (!hasFocus){
+        if (!hasFocus) {
             closeKeyBoard();
         }
     }

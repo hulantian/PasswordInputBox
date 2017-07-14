@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="PasswordInputBox">
+        <!--是否使用自定义键盘-->
+        <attr name="isCustomKeyboard" format="boolean"/>
         <!--密码是否可见-->
         <attr name="pwdVisible" format="boolean"/>
         <!--是否需要光标-->
@@ -20,4 +22,26 @@
         <!--密码可见时的文本大小-->
         <attr name="textSize" format="dimension|reference"/>
     </declare-styleable>
+
+    <declare-styleable name="MagicKeyBoard">
+        <!--是否开启随机键盘-->
+        <attr name="randomKeyBoard" format="boolean"/>
+        <!--线条的宽度-->
+        <attr name="lineWidth" format="dimension|reference"/>
+        <!--线条的颜色-->
+        <attr name="lineColor" format="color|reference"/>
+        <!--数字的大小-->
+        <attr name="numbersSize" format="dimension|reference"/>
+        <!--数字的颜色-->
+        <attr name="numbersColor" format="color|reference"/>
+        <!--数字方格normal状态的背景颜色-->
+        <attr name="numbersNormalBgColor" format="color|reference"/>
+        <!--数字方格press状态的背景颜色-->
+        <attr name="numbersPressBgColor" format="color|reference"/>
+        <!--删除按键nromal状态的背景颜色-->
+        <attr name="deleteNormalBgColor" format="color|reference"/>
+        <!--删除按键press状态的背景颜色-->
+        <attr name="deletePressBgColor" format="color|reference"/>
+    </declare-styleable>
+
 </resources>

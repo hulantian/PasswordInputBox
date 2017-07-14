@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <com.magic.pwdinputbox.PasswordInputBox
         android:id="@+id/pwdinputbox"
         android:layout_marginTop="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
 
+        app:isCustomKeyboard="false"
         app:pwdVisible="true"
         app:needCursor="true"
         app:pwdNum="8"
@@ -25,9 +25,26 @@
 
     <Button
         android:id="@+id/clearbutton"
-        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
         android:text="清空"/>
 
-</LinearLayout>
+    <com.magic.pwdinputbox.MagicKeyBoard
+        android:id="@+id/magickeyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        app:randomKeyBoard="true"
+        app:lineWidth="2dp"
+        app:lineColor="#ff0000"
+        app:numbersSize="15dp"
+        app:numbersColor="#00ff00"
+        app:numbersNormalBgColor="#ffff00"
+        app:numbersPressBgColor="#00ffff"
+        app:deleteNormalBgColor="#0000ff"
+        app:deletePressBgColor="#ff00ff"/>
+
+</RelativeLayout>
