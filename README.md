@@ -19,7 +19,7 @@ Add it in your root build.gradle at the end of repositories:
 
     ```
     dependencies {
-        compile 'com.github.hfdy:PasswordInputBox:v1.0.0'
+        compile 'com.github.hfdy:PasswordInputBox:v1.1.0'
     }
     ```
 - maven
@@ -35,7 +35,7 @@ Add it in your root build.gradle at the end of repositories:
     <dependency>
         <groupId>com.github.hfdy</groupId>
         <artifactId>PasswordInputBox</artifactId>
-        <version>v1.0.0</version>
+        <version>v1.1.0</version>
     </dependency>
     ```
 
